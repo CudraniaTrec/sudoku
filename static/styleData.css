@@ -1,0 +1,51 @@
+tr {
+    border: 1px solid black;
+}
+
+td {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+}
+
+td:hover {
+    border: 2px solid blueviolet;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: yellow;
+    border: 3px solid black;
+    position: fixed;
+    top: 20%;
+    right: 40%;
+    text-align: center;
+}
+
+table .r3,
+.r6 {
+    border-bottom: 3px solid black;
+}
+
+table .c3,
+.c6 {
+    border-right: 3px solid black;
+}
+
+.save {
+    background-color: silver;
+    height: 80px;
+    width: 200px;
+    text-align: center;
+    line-height: 80px;
+}
+
+.error {
+    color: tomato;
+    font-weight: bold;
+}
+
+.strSudoku {
+    height: 100px;
+    width: 100px;
+}
