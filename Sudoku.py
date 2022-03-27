@@ -1,7 +1,7 @@
 #数独
-dataSudoku="700000000006750209004090000400002090080000020050800003000010500103048600000000001"
+#dataSudoku="700000000006750209004090000400002090080000020050800003000010500103048600000000001"
 from flask import Flask,render_template,request
-
+import random
 webSudoku=Flask(__name__)
 
 @webSudoku.route("/") #decide to input data or start a sudoku
@@ -10,7 +10,13 @@ def root():
 
 @webSudoku.route("/sudokuMain")
 def sudokuMain():
-	return render_template("sudokuMain.html")
+	file=open('sudoku.data',"r")
+	Lines=file.read()
+	lines=Lines.splitlines()
+	lineCount=len(lines)
+	ran=random.randint(0,lineCount-1)
+	file.close()
+	return render_template("sudokuMain.html",boardData=lines[ran])
 
 @webSudoku.route("/sudokuData")
 def sudokuData():
@@ -20,7 +26,9 @@ def sudokuData():
 def sudokuSave():
 	str=request.form["strSudoku"]
 	file=open("sudoku.data","a")
-	file.write(str+"\n")
+	if len(str)==64:
+		file.write(str+"\n")
+	file.close();
 	return render_template("sudokuSave.html")
 
 if __name__=="__main__": #新增代码

@@ -2,6 +2,7 @@ var board = new Array(9);
 var board1 = new Array(9);
 var error_exists = false;
 var success = false;
+var has_board_data = false;
 
 for (var i = 0; i < 9; i++) { //一维长度为3
     board[i] = new Array(9).fill(0);
@@ -110,7 +111,7 @@ function checkBoard() {
 function inputNum() {
     var num = prompt('input a number', "0");
     num = parseInt(num);
-    if (num < 0 || num > 9 || num == NaN) {
+    if (!(num >= 0 && num <= 9)) {
         alert('incorrect input');
         return;
     }
@@ -129,14 +130,24 @@ function inputNum() {
 }
 
 function restart() {
-    boardCopy(board1);
     initBoard();
     showBoard();
     checkBoard();
 }
 
 function initBoard() {
+    if (has_board_data == true) {
+        boardCopy(board1);
+    } else {
+        boardCopy(board0);
+    }
     $('.menu .restart').unbind();
+    $('.menu .restart').mouseover(function() {
+        $(this).css("background-color", "gray")
+    });
+    $('.menu .restart').mouseout(function() {
+        $(this).css("background-color", "silver")
+    });
     $('.menu .restart').click(restart);
     $('.menu .info .content').html("enjoy sudoku!");
     for (var i = 0; i < 9; ++i) {
@@ -163,7 +174,16 @@ function showBoard() {
 }
 
 function init() {
-
+    var data = $('#boardData').html();
+    console.log(data);
+    if (data.length == 81) {
+        has_board_data = true;
+        for (var k = 0; k < data.length; k++) {
+            var i = Math.floor(k / 9),
+                j = k % 9;
+            board1[i][j] = data[k];
+        }
+    }
 }
 
 function boardGet() {
@@ -188,7 +208,6 @@ function boardCopy(sourceBoard) {
 
 function main() {
     init();
-    boardCopy(board1);
     initBoard();
     showBoard();
 }

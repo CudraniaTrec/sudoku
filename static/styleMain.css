@@ -63,6 +63,7 @@ table .c3,
 
 .menu .info .header {
     height: 70px;
+    color: coral;
 }
 
 .menu .info .content {
@@ -83,4 +84,8 @@ table .c3,
 .error {
     color: tomato;
     font-weight: bold;
+}
+
+.ignore {
+    display: none;
 }

@@ -5,119 +5,126 @@
     <meta charset="UTF-8">
     <meta name="Author" content="dxf">
     <meta name="Keywords" content="Sudoku">
-    <title>Sudoku</title>
+    <title>Show Me Your Sudoku</title>
     <link rel="stylesheet" href="/static/styleData.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 
 <body>
     <form method="post" action="/sudokuSave">
-        <table>
-            <tr class="r1">
-                <td class="c1"></td>
-                <td class="c2"></td>
-                <td class="c3"></td>
-                <td class="c4"></td>
-                <td class="c5"></td>
-                <td class="c6"></td>
-                <td class="c7"></td>
-                <td class="c8"></td>
-                <td class="c9"></td>
-            </tr>
-            <tr class="r2">
-                <td class="c1"></td>
-                <td class="c2"></td>
-                <td class="c3"></td>
-                <td class="c4"></td>
-                <td class="c5"></td>
-                <td class="c6"></td>
-                <td class="c7"></td>
-                <td class="c8"></td>
-                <td class="c9"></td>
-            </tr>
-            <tr class="r3">
-                <td class="c1"></td>
-                <td class="c2"></td>
-                <td class="c3"></td>
-                <td class="c4"></td>
-                <td class="c5"></td>
-                <td class="c6"></td>
-                <td class="c7"></td>
-                <td class="c8"></td>
-                <td class="c9"></td>
-            </tr>
-            <tr class="r4">
-                <td class="c1"></td>
-                <td class="c2"></td>
-                <td class="c3"></td>
-                <td class="c4"></td>
-                <td class="c5"></td>
-                <td class="c6"></td>
-                <td class="c7"></td>
-                <td class="c8"></td>
-                <td class="c9"></td>
-            </tr>
-            <tr class="r5">
-                <td class="c1"></td>
-                <td class="c2"></td>
-                <td class="c3"></td>
-                <td class="c4"></td>
-                <td class="c5"></td>
-                <td class="c6"></td>
-                <td class="c7"></td>
-                <td class="c8"></td>
-                <td class="c9"></td>
-            </tr>
-            <tr class="r6">
-                <td class="c1"></td>
-                <td class="c2"></td>
-                <td class="c3"></td>
-                <td class="c4"></td>
-                <td class="c5"></td>
-                <td class="c6"></td>
-                <td class="c7"></td>
-                <td class="c8"></td>
-                <td class="c9"></td>
-            </tr>
-            <tr class="r7">
-                <td class="c1"></td>
-                <td class="c2"></td>
-                <td class="c3"></td>
-                <td class="c4"></td>
-                <td class="c5"></td>
-                <td class="c6"></td>
-                <td class="c7"></td>
-                <td class="c8"></td>
-                <td class="c9"></td>
-            </tr>
-            <tr class="r8">
-                <td class="c1"></td>
-                <td class="c2"></td>
-                <td class="c3"></td>
-                <td class="c4"></td>
-                <td class="c5"></td>
-                <td class="c6"></td>
-                <td class="c7"></td>
-                <td class="c8"></td>
-                <td class="c9"></td>
-            </tr>
-            <tr class="r9">
-                <td class="c1"></td>
-                <td class="c2"></td>
-                <td class="c3"></td>
-                <td class="c4"></td>
-                <td class="c5"></td>
-                <td class="c6"></td>
-                <td class="c7"></td>
-                <td class="c8"></td>
-                <td class="c9"></td>
-            </tr>
-        </table>
-        <p>输入字符串形式的数独题面</p>
-        <input name="strSudoku" class="strSudoku" type="text">
-        <input type="submit" value="保存数独题面">
+        <div class="board">
+            <p>2：向数独棋盘之中输入棋局</p>
+            <table>
+                <tr class="r1">
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3"></td>
+                    <td class="c4"></td>
+                    <td class="c5"></td>
+                    <td class="c6"></td>
+                    <td class="c7"></td>
+                    <td class="c8"></td>
+                    <td class="c9"></td>
+                </tr>
+                <tr class="r2">
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3"></td>
+                    <td class="c4"></td>
+                    <td class="c5"></td>
+                    <td class="c6"></td>
+                    <td class="c7"></td>
+                    <td class="c8"></td>
+                    <td class="c9"></td>
+                </tr>
+                <tr class="r3">
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3"></td>
+                    <td class="c4"></td>
+                    <td class="c5"></td>
+                    <td class="c6"></td>
+                    <td class="c7"></td>
+                    <td class="c8"></td>
+                    <td class="c9"></td>
+                </tr>
+                <tr class="r4">
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3"></td>
+                    <td class="c4"></td>
+                    <td class="c5"></td>
+                    <td class="c6"></td>
+                    <td class="c7"></td>
+                    <td class="c8"></td>
+                    <td class="c9"></td>
+                </tr>
+                <tr class="r5">
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3"></td>
+                    <td class="c4"></td>
+                    <td class="c5"></td>
+                    <td class="c6"></td>
+                    <td class="c7"></td>
+                    <td class="c8"></td>
+                    <td class="c9"></td>
+                </tr>
+                <tr class="r6">
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3"></td>
+                    <td class="c4"></td>
+                    <td class="c5"></td>
+                    <td class="c6"></td>
+                    <td class="c7"></td>
+                    <td class="c8"></td>
+                    <td class="c9"></td>
+                </tr>
+                <tr class="r7">
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3"></td>
+                    <td class="c4"></td>
+                    <td class="c5"></td>
+                    <td class="c6"></td>
+                    <td class="c7"></td>
+                    <td class="c8"></td>
+                    <td class="c9"></td>
+                </tr>
+                <tr class="r8">
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3"></td>
+                    <td class="c4"></td>
+                    <td class="c5"></td>
+                    <td class="c6"></td>
+                    <td class="c7"></td>
+                    <td class="c8"></td>
+                    <td class="c9"></td>
+                </tr>
+                <tr class="r9">
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3"></td>
+                    <td class="c4"></td>
+                    <td class="c5"></td>
+                    <td class="c6"></td>
+                    <td class="c7"></td>
+                    <td class="c8"></td>
+                    <td class="c9"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="strBoard">
+            <p>1：输入字符串形式的数独题面</p>
+            <textarea name="strSudoku" class="strSudoku"></textarea><br>
+            <input type="submit" value="保存数独题面">
+        </div>
     </form>
     <script type="text/javascript" src="static/scriptData.js"></script>
+    <script src="/static/love.js" type="text/javascript"></script>
 </body>
 
 </html>

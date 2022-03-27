@@ -16,10 +16,13 @@ table {
     border-collapse: collapse;
     background-color: yellow;
     border: 3px solid black;
+    text-align: center;
+}
+
+.board {
     position: fixed;
     top: 20%;
-    right: 40%;
-    text-align: center;
+    right: 20%;
 }
 
 table .r3,
@@ -45,7 +48,44 @@ table .c3,
     font-weight: bold;
 }
 
-.strSudoku {
+body {
+    background-image: url(/static/resource/background2.jpg);
+    background-size: 100%;
+    background-position: center 5%;
+    background-repeat: no-repeat;
+}
+
+.strBoard {
+    position: fixed;
+    top: 20%;
+    left: 20%;
+}
+
+p {
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: ivory;
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+    margin: 0;
+}
+
+input {
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    border: #F00 1px solid;
+    border-radius: 3px;
+    background: lightblue;
+    color: purple;
+}
+
+textarea {
+    outline: 0 none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
     height: 100px;
-    width: 100px;
+    width: 270px;
+    font-size: 20px;
 }

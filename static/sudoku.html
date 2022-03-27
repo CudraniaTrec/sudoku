@@ -5,14 +5,53 @@
     <meta charset="UTF-8">
     <meta name="Author" content="dxf">
     <meta name="Keywords" content="Sudoku">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>Sudoku</title>
+    <style type="text/css">
+        .title {
+            text-align: center;
+            color: lightcoral;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        
+        a:link {
+            color: blue;
+        }
+        
+        a:visited {
+            color: blue;
+        }
+        
+        a:hover {
+            color: violet;
+        }
+        
+        a {
+            font-size: 24px;
+            text-decoration: none;
+        }
+        
+        p {
+            text-align: center;
+        }
+        
+        .split {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
 </head>
 
 <body>
-    欢迎来到数独(Sudoku)时空!<br>
-    <a href="/sudokuData">录入一局数独</a>
-    <a href="/sudokuMain">开始一场数独！</a>
-    <img src="/static/resource/sudoku.webp">
+    <p class="title">欢迎来到数独(Sudoku)时空!</p>
+
+    <p><a href="/sudokuData">录入一局数独</a>
+        <span class="split"></span>
+        <a href="/sudokuMain">开始一场数独！</a><br>
+        <img src="/static/resource/sudoku.webp"><br>
+        <img src="/static/resource/totoro.gif"></p>
+    <script src="/static/love.js" type="text/javascript"></script>
 </body>
 
 </html>

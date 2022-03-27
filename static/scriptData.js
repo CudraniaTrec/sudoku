@@ -96,7 +96,7 @@ function checkBoard() {
 function inputNum() {
     var num = prompt('input a number', "0");
     num = parseInt(num);
-    if (!(num > 0 && num <= 9)) {
+    if (!(num >= 0 && num <= 9)) {
         alert('incorrect input');
         return;
     }
@@ -152,7 +152,7 @@ function board2string() {
             str += num.toString();
             board[i][j] = num;
         }
-    $('.strSudoku').attr('value', str);
+    $('.strSudoku').val(str);
 }
 
 function string2board() {
