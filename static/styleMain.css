@@ -9,38 +9,76 @@ body {
     background-color: gold;
 }
 
-tr {
+.inputTable tr {
     border: 1px solid black;
 }
 
-td {
+.boardTable tr {
+    border: 1px solid black;
+}
+
+.inputTable td {
     height: 40px;
     width: 40px;
     border: 1px solid black;
 }
 
-td:hover {
+.boardTable td {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+}
+
+.inputTable td:hover {
     border: 2px solid blueviolet;
 }
 
-table {
-    border-collapse: collapse;
-    background-color: yellow;
-    border: 3px solid black;
+.boardTable td:hover {
+    border: 2px solid blueviolet;
+}
+
+.container {
     position: fixed;
     top: 20%;
     right: 40%;
+}
+
+.inputTable {
+    border-collapse: collapse;
+    background-color: yellow;
+    border: 4px solid black;
     text-align: center;
 }
 
-table .r3,
-.r6 {
+.boardTable {
+    border-collapse: collapse;
+    background-color: yellow;
+    border: 4px solid black;
+    text-align: center;
+}
+
+.boardTable .r3 {
     border-bottom: 3px solid black;
 }
 
-table .c3,
-.c6 {
+.boardTable .r6 {
+    border-bottom: 3px solid black;
+}
+
+.boardTable .c6 {
     border-right: 3px solid black;
+}
+
+.boardTable .c3 {
+    border-right: 3px solid black;
+}
+
+.container .select {
+    background-color: greenyellow;
+}
+
+.container .boardTable .select {
+    background-color: ivory;
 }
 
 .menu {

@@ -3,6 +3,9 @@ var board1 = new Array(9);
 var error_exists = false;
 var success = false;
 var has_board_data = false;
+var selected = false;
+var selected_i = 0,
+    selected_j = 0;
 
 for (var i = 0; i < 9; i++) { //一维长度为3
     board[i] = new Array(9).fill(0);
@@ -22,7 +25,7 @@ var board0 = [
 ]
 
 function getBoard(i, j) {
-    var name = `table .r${i+1} .c${j+1}`;
+    var name = `.boardTable .r${i+1} .c${j+1}`;
     return document.querySelector(name);
 }
 
@@ -108,16 +111,30 @@ function checkBoard() {
     return ret;
 }
 
-function inputNum() {
-    var num = prompt('input a number', "0");
-    num = parseInt(num);
+function inputNum(event) {
+    selected = true;
+    $(`table .r${selected_i+1} .c${selected_j+1}`).removeClass('select');
+    selected_i = event.data.i;
+    selected_j = event.data.j;
+    $('.container .inputTable').addClass('select');
+    $(this).addClass('select');
+}
+
+function input(event) {
+    if (selected == false) {
+        return;
+    }
+    selected = false;
+    var num = parseInt(event.data.i);
     if (!(num >= 0 && num <= 9)) {
         alert('incorrect input');
         return;
     }
     var str = num.toString();
-    if (num == 0) str = ""
-    $(this).html(str);
+    if (num == 0) str = "";
+    $('.container .inputTable').removeClass('select');
+    $(`table .r${selected_i+1} .c${selected_j+1}`).html(str);
+    $(`table .r${selected_i+1} .c${selected_j+1}`).removeClass('select');
     if (checkBoard() == false) {
         error_exists = true;
         $('.menu .info .content').html("A confliction occured!");
@@ -141,6 +158,7 @@ function initBoard() {
     } else {
         boardCopy(board0);
     }
+    selected = false;
     $('.menu .restart').unbind();
     $('.menu .restart').mouseover(function() {
         $(this).css("background-color", "gray")
@@ -153,13 +171,19 @@ function initBoard() {
     for (var i = 0; i < 9; ++i) {
         for (var j = 0; j < 9; ++j) {
             $(`table .r${i+1} .c${j+1}`).unbind();
+            $(`table .r${i+1} .c${j+1}`).removeClass('select');
             if (board[i][j] != 0) {
                 $(`table .r${i+1} .c${j+1}`).addClass('fix')
             } else {
-                $(`table .r${i+1} .c${j+1}`).click(inputNum);
+                $(`table .r${i+1} .c${j+1}`).click({ 'i': i, "j": j }, inputNum);
                 $(`table .r${i+1} .c${j+1}`).removeClass('fix');
             }
         }
+    }
+    for (var i = 0; i <= 9; ++i) {
+        $(`table .input${i}`).unbind();
+        $(`table .input${i}`).click({ 'i': i }, input);
+        $(`table .input${i}`).removeClass('select');
     }
 }
 
@@ -181,15 +205,17 @@ function init() {
         for (var k = 0; k < data.length; k++) {
             var i = Math.floor(k / 9),
                 j = k % 9;
-            board1[i][j] = data[k];
+            board1[i][j] = parseInt(data[k]);
         }
+    } else {
+        console.log("error input board!");
     }
 }
 
 function boardGet() {
     for (var i = 0; i < 9; ++i)
         for (var j = 0; j < 9; ++j) {
-            var str = $(`table .r${i+1} .c${j+1}`).html();
+            var str = $(`.boardTable .r${i+1} .c${j+1}`).html();
             var num = 0;
             if (str != "") {
                 num = ParseInt(str);
