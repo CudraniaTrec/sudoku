@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="dxf">
+    <meta name="Keywords" content="Sudoku">
+    <title>Sudoku</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        body {
+            background-image: url(/static/resource/background2.jpg);
+            background-size: 100%;
+            background-position: center 0;
+            background-repeat: no-repeat;
+        }
+        
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            color: red;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <center>
+        <div class="title">注册并登录</div>
+        <br>
+        <form action="/sudokuSave" method="post">
+            <table cellspacing="" cellpadding="">
+                <tr>
+                    <td><label for="login name">用户名:</label></td>
+                    <td><input type="text" name="strSudoku" required="required" pattern="[A-Za-z]+" id="login name" value="请仅使用a-z,A-Z" /></td>
+                </tr>
+                <tr>
+                    <td><label for="password">密码:</label></td>
+                    <td><input type="password" name="password" required="required" id="password" value="" /></td>
+                </tr>
+                <tr>
+                    <td><label for="myEmail">电子邮箱:</label></td>
+                    <td><input type="email" name="myEmail" id="myEmail" value="" /></td>
+                </tr>
+                <tr>
+                    <td><label>性别:</label></td>
+                    <td>
+                        <input type="radio" value="male" />男
+                        <input type="radio" value="female" />女
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>头像:</label></td>
+                    <td><input type="file" name="myFile" /></td>
+                </tr>
+                <tr>
+                    <td><label>爱好:</label></td>
+                    <td>
+                        <input type="checkbox" value="学习" />学习
+                        <input type="checkbox" value="阅读" />阅读
+                        <input type="checkbox" value="运动" />运动
+                        <input type="checkbox" value="玩游戏" />玩游戏
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>出生日期:</label></td>
+                    <td>
+                        <input type="text" size="1" name="year" placeholder="yyyy" id="" value="" />年
+                        <select name="month">
+							<option value ="0">[选择月份]</option>
+							<option value ="1">1月</option>
+							<option value ="2">2月</option>
+							<option value ="3">3月</option>
+							<option value ="4">4月</option>
+							<option value ="5">5月</option>
+							<option value ="6">6月</option>
+							<option value ="7">7月</option>
+							<option value ="8">8月</option>
+							<option value ="9">9月</option>
+							<option value ="10">10月</option>
+							<option value ="11">11月</option>
+							<option value ="12">12月</option>
+						</select>
+                        <input type="text" size="1" name="day" placeholder="dd" />日
+                    </td>
+                </tr>
+            </table>
+            <input type="image" src="static/resource/submit.png" height="25" width="70" value="提交" />
+        </form>
+    </center>
+    <script src="/static/love.js" type="text/javascript"></script>
+</body>
+
+</html>

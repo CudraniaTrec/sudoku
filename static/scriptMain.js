@@ -1,5 +1,7 @@
 var board = new Array(9);
 var board1 = new Array(9);
+var time = 0;
+var post_flag = false;
 var error_exists = false;
 var success = false;
 var has_board_data = false;
@@ -143,7 +145,13 @@ function input(event) {
     }
     if (success == true) {
         $('.menu .info .content').html("You make it.Congratulations!");
+        complete();
     }
+}
+
+function complete() {
+    window.location.href = '/success?time=' + time.toString();
+    return false;
 }
 
 function restart() {
@@ -167,6 +175,14 @@ function initBoard() {
         $(this).css("background-color", "silver")
     });
     $('.menu .restart').click(restart);
+    $('.menu .pass').unbind();
+    $('.menu .pass').mouseover(function() {
+        $(this).css("background-color", "gray")
+    });
+    $('.menu .pass').mouseout(function() {
+        $(this).css("background-color", "silver")
+    });
+    $('.menu .pass').click(complete);
     $('.menu .info .content').html("enjoy sudoku!");
     for (var i = 0; i < 9; ++i) {
         for (var j = 0; j < 9; ++j) {
@@ -198,6 +214,10 @@ function showBoard() {
 }
 
 function init() {
+    window.setInterval(function() {
+        time += 1;
+        $('.time').html(time);
+    }, 1000);
     var data = $('#boardData').html();
     console.log(data);
     if (data.length == 81) {

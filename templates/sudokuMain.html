@@ -8,7 +8,7 @@
     <title>Welcome to Sudoku!</title>
     <link rel="stylesheet" href="/static/styleMain.css">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="static/jquery.3.6.0.js"></script>
 </head>
 
 <div>
@@ -155,10 +155,17 @@
     </table>
     <div class="menu">
         <div class="info">
-            <div class="header">消息窗口</div>
+            <div class="header">
+                消息窗口
+            </div>
+            <div class="message">
+                当前用户：{{userData}}<br> 所用时间：
+                <span class="time" name="time">0</span>
+            </div>
             <div class="content">enjoy sudoku!</div>
         </div>
         <div class="restart">重新开始</div>
+        <div class="pass">太简单了，跳过！</div>
     </div>
     <p class="ignore" id="boardData">{{boardData}}</p>
     <script src="/static/scriptMain.js"></script>

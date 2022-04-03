@@ -85,7 +85,7 @@ body {
     position: fixed;
     top: 20%;
     right: 15%;
-    height: 320px;
+    height: 360px;
     width: 300px;
 }
 
@@ -100,27 +100,44 @@ body {
 }
 
 .menu .info .header {
-    height: 70px;
+    height: 50px;
     color: coral;
 }
 
 .menu .info .content {
-    height: 180px;
+    height: 150px;
     line-height: 50px;
 }
 
+.menu .info .message {
+    height: 50px;
+    color: green;
+    font-size: 20px;
+}
+
 .menu .restart {
-    height: 70px;
+    height: 60px;
     background-color: silver;
     font-family: FontAwesome;
     font-size: 40px;
-    line-height: 70px;
+    line-height: 60px;
+    color: blue;
+    text-align: center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.menu .pass {
+    height: 50px;
+    background-color: silver;
+    font-size: 30px;
+    line-height: 50px;
     color: blue;
     text-align: center;
 }
 
 .error {
-    color: tomato;
+    background-color: tomato;
     font-weight: bold;
 }
 

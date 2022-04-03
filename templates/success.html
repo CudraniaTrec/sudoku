@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="dxf">
+    <meta name="Keywords" content="Sudoku">
+    <title>Sudoku</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        a:link {
+            color: goldenrod;
+        }
+        
+        a:visited {
+            color: goldenrod;
+        }
+        
+        a:hover {
+            color: violet;
+        }
+        
+        a {
+            text-decoration: none;
+            font-size: 24px;
+        }
+        
+        body {
+            background-image: url(/static/resource/background.png);
+            background-size: 100%;
+            background-position: center 5%;
+            background-repeat: no-repeat;
+        }
+        
+        p {
+            text-align: center;
+        }
+        
+        p .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: red;
+        }
+        
+        p .score {
+            font-size: 20px;
+            color: orangered;
+        }
+        
+        span {
+            display: inline-block;
+            line-height: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p>
+        <span class="title">Congratulations!</span>
+        <br>
+        <span class="score">花费了{{score}}s</span>
+        <br>
+        <span><a href="/sudokuMain">点击重新开始对局</a></span>
+        <br>
+        <span><a href="/">点击返回首页</a></span>
+        <br>
+        <img src="/static/resource/2.webp" height="400" width="400">
+    </p>
+    <script src="/static/love.js" type="text/javascript"></script>
+</body>
+
+</html>

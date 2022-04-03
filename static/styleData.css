@@ -77,7 +77,7 @@
 }
 
 .error {
-    color: tomato;
+    background-color: tomato;
     font-weight: bold;
 }
 
